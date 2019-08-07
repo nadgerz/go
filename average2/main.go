@@ -24,6 +24,7 @@ func main() {
 
 	arguments := os.Args[1:]
 
+	var numbers []float64
 	var sum float64 = 0
 
 	for _, argument := range arguments {
@@ -35,10 +36,13 @@ func main() {
 		}
 
 		sum += number
+
+		numbers = append(numbers, number)
 	}
 
 	sampleCount := float64(len(arguments))
 	fmt.Printf("Average: %0.2f\n", sum/sampleCount)
+	fmt.Printf("Average: %0.2f\n", average(numbers...))
 
 	fmt.Println(average(100, 50))
 	fmt.Println(average(90.7, 89.7, 98.5, 92.3))
