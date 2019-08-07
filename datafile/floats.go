@@ -3,8 +3,6 @@ package datafile
 
 import (
 	"bufio"
-	"fmt"
-	"log"
 	"os"
 	"strconv"
 )
