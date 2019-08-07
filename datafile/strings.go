@@ -8,7 +8,7 @@ import (
 
 // GetStrings reads a string from each line of a file.
 func GetStrings(fileName string) ([]string, error) {
-	var line []string
+	var lines []string
 
 	file, err := os.Open(fileName)
 	if err != nil {
@@ -17,10 +17,10 @@ func GetStrings(fileName string) ([]string, error) {
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		// Add the line to the slice directly.
 		line := scanner.Text()
 
-		lines = append(lines, number)
+		// Add the line to the slice directly.
+		lines = append(lines, line)
 	}
 
 	err = file.Close()
