@@ -9,7 +9,7 @@ func inRange(min float64, max float64, numbers ...float64) []float64 {
 
 	// process each variadic argument
 	for _, number := range numbers {
-		if number >= max && number <= max {
+		if number >= min && number <= max {
 			result = append(result, number)
 		}
 	}
