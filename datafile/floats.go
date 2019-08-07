@@ -16,7 +16,7 @@ func GetFloats(fileName string) ([]float64, error) {
 	file, err := os.Open(fileName)
 	if err != nil {
 		// If there was an error opening the file, return it.
-		return numbers, err
+		return nil, err
 	}
 
 	scanner := bufio.NewScanner(file)
@@ -26,7 +26,7 @@ func GetFloats(fileName string) ([]float64, error) {
 
 		// If there was an error converting the line to a number, return it
 		if err != nil {
-			return numbers, err
+			return nil, err
 		}
 
 		numbers = append(numbers, number)
@@ -35,12 +35,12 @@ func GetFloats(fileName string) ([]float64, error) {
 	// close the file to free resources
 	err = file.Close()
 	if err != nil {
-		return numbers, err
+		return nil, err
 	}
 
 	// if there was an error scanning the file, report it and exit.
 	if scanner.Err() != nil {
-		return numbers, scanner.Err()
+		return nil, scanner.Err()
 	}
 
 	// If we go this far there were no errors, so
