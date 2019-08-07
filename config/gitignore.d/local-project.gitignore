@@ -1,0 +1,19 @@
+# std 'build' type dirs
+build/
+dist/
+
+# where I often store .zip files etc
+orig/
+**/*.zip
+**/*.tgz
+
+
+# coz...
+tmp/
+temp/
+
+# my $ history > si.hist runs
+*.hist
+
+# for mono-repos so I only need one .gitignore
+**/.idea/**/workspace.xml
