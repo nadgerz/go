@@ -7,7 +7,6 @@ import (
 
 func maximum(numbers ...float64) float64 {
 	max := math.Inf(-1)
-	fmt.Println(max)
 
 	// process each variadic argument
 	for _, number := range numbers {
