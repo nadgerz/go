@@ -48,4 +48,11 @@ func main() {
 	emptyMap := map[string]float64{}
 	fmt.Printf("%#v\n", emptyMap)
 
+	counters := make(map[string]int)
+	counters["a"]++
+	counters["a"]++
+	counters["c"]++
+	fmt.Println(counters["a"], counters["b"], counters["c"])
+	fmt.Printf("%#v\n", counters)
+
 }
