@@ -8,6 +8,10 @@ import (
 type MyType string
 type Number int
 
+type Liters float64
+type Milliliters float64
+type Gallons float64
+
 func (m MyType) sayHi() {
 	fmt.Println("Hi from", m)
 }
@@ -38,6 +42,22 @@ func (m MyType) WithReturn() int {
 
 func (n *Number) Double() {
 	*n *= 2
+}
+
+const GALLONS_PER_LITER float64 = 0.264
+const LITERS_PER_GALLON float64 = 1 / GALLONS_PER_LITER
+const MILLILITERS_PER_GALLON float64 = 1 / GALLONS_PER_LITER * 1000
+
+func (l Liters) ToGallons() Gallons {
+	return Gallons(l * Liters(GALLONS_PER_LITER))
+}
+
+func (m Milliliters) ToGallons() Gallons {
+	return Gallons(m * Milliliters(GALLONS_PER_LITER) * 1000)
+}
+
+func (g Gallons) ToLiters() Liters {
+	return Liters(g * Gallons(LITERS_PER_GALLON))
 }
 
 func main() {
@@ -77,5 +97,11 @@ func main() {
 
 	pointer.method()
 	pointer.pointerMethod()
+
+	soda := Liters(2)
+	fmt.Printf("%0.3f liters equals %0.3f gallons\n", soda, soda.ToGallons())
+
+	water := Milliliters(500)
+	fmt.Printf("%0.3f milliliters equals %0.3f gallons\n", water, water.ToGallons())
 
 }
