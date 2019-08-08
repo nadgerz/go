@@ -133,14 +133,14 @@ func main() {
 	subscriber8 := magazine.Subscriber{
 		Name: "Billy Bunter",
 	}
-	subscriber8.HomeAddress = address
+	subscriber8.Address = address
 	printInfo(&subscriber8)
 
 	var employee magazine.Employee
 
 	employee.Name = "Razzle Dazzle"
 	employee.Salary = 60000
-	employee.HomeAddress = address
+	employee.Address = address
 
 	fmt.Println(employee)
 	fmt.Printf("%#v\n", employee)
