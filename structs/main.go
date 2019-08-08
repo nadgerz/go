@@ -123,4 +123,12 @@ func main() {
 		Name: "Billy Bunter",
 	}
 	printInfo(&subscriber8)
+
+	var employee magazine.Employee
+
+	employee.Name = "Razzle Dazzle"
+	employee.Salary = 60000
+	employee.Salary = 60000
+
+	fmt.Printf("%#v\n", employee)
 }
