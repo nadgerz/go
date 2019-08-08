@@ -7,6 +7,6 @@ type Subscriber struct {
 }
 
 type Employee struct {
-	name   string
+	Name   string
 	Salary float64
 }
