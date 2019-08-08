@@ -55,7 +55,7 @@ func main() {
 	fmt.Println(counters["a"], counters["b"], counters["c"])
 	fmt.Printf("%#v\n", counters)
 
-	counters2 := make(map[string]int)
+	counters2 := map[string]int{"a": 3, "b": 0}
 	var value int
 	var ok bool
 	value, ok = counters2["a"]
