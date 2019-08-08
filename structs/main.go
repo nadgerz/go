@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/nadgerz/go/magazine"
 )
 
 type subscriber struct {
@@ -22,24 +23,24 @@ var subscriber2 struct {
 	active bool
 }
 
-func printInfo(s *subscriber) {
-	fmt.Println("Name:", s.name)
-	fmt.Println("Monthly Rate:", s.rate)
-	fmt.Println("Active?:", s.active)
+func printInfo(s *magazine.Subscriber) {
+	fmt.Println("Name:", s.Name)
+	fmt.Println("Monthly Rate:", s.Rate)
+	fmt.Println("Active?:", s.Active)
 }
 
-func defaultSubscriber(name string) *subscriber {
-	var s subscriber
+func defaultSubscriber(name string) *magazine.Subscriber {
+	var s magazine.Subscriber
 
-	s.name = name
-	s.rate = 5.99
-	s.active = true
+	s.Name = name
+	s.Rate = 5.99
+	s.Active = true
 
 	return &s
 }
 
-func applyDiscount(s *subscriber) {
-	s.rate = 1.99
+func applyDiscount(s *magazine.Subscriber) {
+	s.Rate = 1.99
 }
 
 func main() {
@@ -88,7 +89,7 @@ func main() {
 	fmt.Println("Subscriber 4")
 	fmt.Println("------------")
 	subscriber4 := defaultSubscriber("Mackenzie Rudis")
-	subscriber4.rate = 2.99
+	subscriber4.Rate = 2.99
 	printInfo(subscriber4)
 
 	fmt.Println()
