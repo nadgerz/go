@@ -23,7 +23,7 @@ func (m MyType) method() {
 }
 
 func (m *MyType) pointerMethod() {
-	fmt.Println("Method with value receiver")
+	fmt.Println("Method with pointer receiver")
 }
 
 func (m MyType) ExportedMethod() {
