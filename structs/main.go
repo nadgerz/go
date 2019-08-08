@@ -134,6 +134,7 @@ func main() {
 		Name: "Billy Bunter",
 	}
 	subscriber8.Address = address
+	fmt.Println(subscriber8.State)
 	printInfo(&subscriber8)
 
 	var employee magazine.Employee
@@ -141,6 +142,7 @@ func main() {
 	employee.Name = "Razzle Dazzle"
 	employee.Salary = 60000
 	employee.Address = address
+	fmt.Println(employee.City)
 
 	fmt.Println(employee)
 	fmt.Printf("%#v\n", employee)
