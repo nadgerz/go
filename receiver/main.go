@@ -18,6 +18,14 @@ func (m MyType) MethodWithParameters(number int, flag bool) {
 	fmt.Println(flag)
 }
 
+func (m MyType) method() {
+	fmt.Println("Method with value receiver")
+}
+
+func (m *MyType) pointerMethod() {
+	fmt.Println("Method with value receiver")
+}
+
 func (m MyType) ExportedMethod() {
 }
 
@@ -60,5 +68,14 @@ func main() {
 	fmt.Println("Original:", number)
 	number.Double()
 	fmt.Println("Doubled:", number)
+
+	stringy := MyType("knotty")
+	pointer := &stringy
+
+	stringy.method()
+	stringy.pointerMethod()
+
+	pointer.method()
+	pointer.pointerMethod()
 
 }
