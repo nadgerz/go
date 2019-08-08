@@ -38,7 +38,7 @@ func defaultSubscriber(name string) subscriber {
 	return s
 }
 
-func applyDiscount(s subscriber) {
+func applyDiscount(s *subscriber) {
 	s.rate = 1.99
 }
 
@@ -102,6 +102,6 @@ func main() {
 	fmt.Println("------------")
 	subscriber6 := defaultSubscriber("Dan Theman")
 	printInfo(subscriber6)
-	applyDiscount(subscriber6)
+	applyDiscount(&subscriber6)
 	printInfo(subscriber6)
 }
