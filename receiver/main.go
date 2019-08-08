@@ -53,7 +53,7 @@ func (l Liters) ToGallons() Gallons {
 }
 
 func (m Milliliters) ToGallons() Gallons {
-	return Gallons(m * Milliliters(GALLONS_PER_LITER) * 1000)
+	return Gallons(m * Milliliters(GALLONS_PER_LITER) / 1000)
 }
 
 func (g Gallons) ToLiters() Liters {
