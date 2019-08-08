@@ -6,6 +6,7 @@ import (
 )
 
 type MyType string
+type Number int
 
 func (m MyType) sayHi() {
 	fmt.Println("Hi from", m)
@@ -25,6 +26,10 @@ func (m MyType) unexportedMethod() {
 
 func (m MyType) WithReturn() int {
 	return len(m)
+}
+
+func (n *Number) Double() {
+	*n *= 2
 }
 
 func main() {
@@ -50,4 +55,10 @@ func main() {
 
 	anotherThree := MyType("MyType value is all the way to 3!")
 	fmt.Println(anotherThree.WithReturn())
+
+	number := Number(4)
+	fmt.Println("Original:", number)
+	number.Double()
+	fmt.Println("Doubled:", number)
+
 }
