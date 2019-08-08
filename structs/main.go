@@ -105,4 +105,14 @@ func main() {
 	printInfo(subscriber6)
 	applyDiscount(subscriber6)
 	printInfo(subscriber6)
+
+	fmt.Println()
+	fmt.Println("Subscriber 7")
+	fmt.Println("------------")
+	subscriber7 := magazine.Subscriber{
+		Name:   "Billy Bunter",
+		Rate:   99.99,
+		Active: false,
+	}
+	printInfo(&subscriber7)
 }
