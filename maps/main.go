@@ -74,4 +74,17 @@ func main() {
 	fmt.Printf("rank: %d, ok: %v\n", rank, ok)
 	fmt.Printf("%#v\n", ranks)
 
+	var prime bool
+	isPrime[5] = true
+
+	prime, ok = isPrime[5]
+	fmt.Printf("prime: %v, ok: %v\n", prime, ok)
+
+	delete(isPrime, 5)
+
+	prime, ok = isPrime[5]
+	fmt.Printf("prime: %v, ok: %v\n", prime, ok)
+
+	fmt.Printf("%#v\n", isPrime)
+
 }
