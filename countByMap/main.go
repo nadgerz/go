@@ -19,7 +19,5 @@ func main() {
 		counts[line]++
 	}
 
-	for i, name := range counts {
-		fmt.Printf("%s: %d\n", name, counts[i])
-	}
+	fmt.Println(counts)
 }
