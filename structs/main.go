@@ -44,6 +44,17 @@ func applyDiscount(s *magazine.Subscriber) {
 }
 
 func main() {
+
+	var address magazine.Address
+
+	address.Street = "GersdorfStr"
+	address.City = "Berlin"
+	address.State = "NV"
+	address.PostalCode = "89131"
+
+	fmt.Println(address)
+	fmt.Printf("%#v\n", address)
+
 	fmt.Println()
 	fmt.Println("Subscriber 1")
 	fmt.Println("------------")
@@ -122,23 +133,15 @@ func main() {
 	subscriber8 := magazine.Subscriber{
 		Name: "Billy Bunter",
 	}
+	subscriber8.HomeAddress = address
 	printInfo(&subscriber8)
 
 	var employee magazine.Employee
 
 	employee.Name = "Razzle Dazzle"
 	employee.Salary = 60000
+	employee.HomeAddress = address
 
 	fmt.Println(employee)
 	fmt.Printf("%#v\n", employee)
-
-	var address magazine.Address
-
-	address.Street = "GersdorfStr"
-	address.City = "Berlin"
-	address.State = "NV"
-	address.PostalCode = "89131"
-
-	fmt.Println(address)
-	fmt.Printf("%#v\n", address)
 }
