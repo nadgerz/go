@@ -55,4 +55,15 @@ func main() {
 	fmt.Println(counters["a"], counters["b"], counters["c"])
 	fmt.Printf("%#v\n", counters)
 
+	counters2 := make(map[string]int)
+	var value int
+	var ok bool
+	value, ok = counters2["a"]
+	fmt.Println(value, ok)
+	value, ok = counters2["b"]
+	fmt.Println(value, ok)
+	value, ok = counters2["c"]
+	fmt.Println(value, ok)
+	fmt.Printf("%#v\n", counters2)
+
 }
