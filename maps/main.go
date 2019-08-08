@@ -20,4 +20,18 @@ func main() {
 	map2 := make(map[string]int)
 	fmt.Printf("%#v\n", map2)
 
+	elements := make(map[string]string)
+	elements["H"] = "Hydrogen"
+	elements["Li"] = "Lithium"
+	fmt.Println(elements["Li"])
+	fmt.Println(elements["H"])
+	fmt.Printf("%#v\n", elements)
+
+	isPrime := make(map[int]bool)
+	isPrime[4] = false
+	isPrime[7] = true
+	fmt.Println(isPrime[4])
+	fmt.Println(isPrime[7])
+	fmt.Printf("%#v\n", isPrime)
+
 }
