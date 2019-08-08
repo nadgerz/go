@@ -11,6 +11,16 @@ func (m MyType) sayHi() {
 	fmt.Println("Hi from", m)
 }
 
+func (m MyType) MethodWithParameters(number int, flag bool) {
+	fmt.Println(m)
+	fmt.Println(number)
+	fmt.Println(flag)
+}
+
+func (m MyType) WithReturn() int {
+	return len(m)
+}
+
 func main() {
 	fmt.Println(os.Args)
 
@@ -25,4 +35,10 @@ func main() {
 
 	fmt.Printf("%T\n", x)
 	fmt.Printf("%T\n", value)
+
+	anotherOne := MyType("MyType value")
+	anotherOne.MethodWithParameters(4, true)
+
+	anotherTwo := MyType("MyType value")
+	fmt.Println(anotherTwo.WithReturn())
 }
