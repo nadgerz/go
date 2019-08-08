@@ -38,7 +38,14 @@ func defaultSubscriber(name string) subscriber {
 	return s
 }
 
+func applyDiscount(s subscriber) {
+	s.rate = 1.99
+}
+
 func main() {
+	fmt.Println()
+	fmt.Println("Subscriber 1")
+	fmt.Println("------------")
 	subscriber1.name = "Steve Ingram"
 	subscriber1.rate = 4.99
 	subscriber1.active = true
@@ -49,6 +56,9 @@ func main() {
 
 	fmt.Printf("%#v\n", subscriber1)
 
+	fmt.Println()
+	fmt.Println("Subscriber 2")
+	fmt.Println("------------")
 	subscriber2.name = "Kerstin Dengl"
 	subscriber2.rate = 5.99
 	subscriber2.active = false
@@ -59,6 +69,9 @@ func main() {
 
 	fmt.Printf("%#v\n", subscriber2)
 
+	fmt.Println()
+	fmt.Println("Subscriber 3")
+	fmt.Println("------------")
 	var subscriber3 subscriber
 
 	subscriber3.name = "Alex Letourneau"
@@ -71,10 +84,24 @@ func main() {
 
 	fmt.Printf("%#v\n", subscriber3)
 
+	fmt.Println()
+	fmt.Println("Subscriber 4")
+	fmt.Println("------------")
 	subscriber4 := defaultSubscriber("Mackenzie Rudis")
 	subscriber4.rate = 2.99
 	printInfo(subscriber4)
 
+	fmt.Println()
+	fmt.Println("Subscriber 5")
+	fmt.Println("------------")
 	subscriber5 := defaultSubscriber("Chris Bojemski")
 	printInfo(subscriber5)
+
+	fmt.Println()
+	fmt.Println("Subscriber 6")
+	fmt.Println("------------")
+	subscriber6 := defaultSubscriber("Dan Theman")
+	printInfo(subscriber6)
+	applyDiscount(subscriber6)
+	printInfo(subscriber6)
 }
