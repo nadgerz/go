@@ -128,7 +128,17 @@ func main() {
 
 	employee.Name = "Razzle Dazzle"
 	employee.Salary = 60000
-	employee.Salary = 60000
 
+	fmt.Println(employee)
 	fmt.Printf("%#v\n", employee)
+
+	var address magazine.Address
+
+	address.Street = "GersdorfStr"
+	address.City = "Berlin"
+	address.State = "NV"
+	address.PostalCode = "89131"
+
+	fmt.Println(address)
+	fmt.Printf("%#v\n", address)
 }
