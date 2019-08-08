@@ -13,25 +13,13 @@ func main() {
 		log.Fatal(err)
 	}
 
-	var names []string
-	var counts []int
+	counts := make(map[string]int)
 
 	for _, line := range lines {
-		matched := false
-		for i, name := range names {
-			if name == line {
-				counts[i]++
-				matched = true
-			}
-		}
-
-		if matched == false {
-			names = append(names, line)
-			counts = append(counts, 1)
-		}
+		counts[line]++
 	}
 
-	for i, name := range names {
+	for i, name := range counts {
 		fmt.Printf("%s: %d\n", name, counts[i])
 	}
 }
