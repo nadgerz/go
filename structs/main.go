@@ -22,7 +22,7 @@ var subscriber2 struct {
 	active bool
 }
 
-func printInfo(s subscriber) {
+func printInfo(s *subscriber) {
 	fmt.Println("Name:", s.name)
 	fmt.Println("Monthly Rate:", s.rate)
 	fmt.Println("Active?:", s.active)
@@ -89,19 +89,19 @@ func main() {
 	fmt.Println("------------")
 	subscriber4 := defaultSubscriber("Mackenzie Rudis")
 	subscriber4.rate = 2.99
-	printInfo(subscriber4)
+	printInfo(&subscriber4)
 
 	fmt.Println()
 	fmt.Println("Subscriber 5")
 	fmt.Println("------------")
 	subscriber5 := defaultSubscriber("Chris Bojemski")
-	printInfo(subscriber5)
+	printInfo(&subscriber5)
 
 	fmt.Println()
 	fmt.Println("Subscriber 6")
 	fmt.Println("------------")
 	subscriber6 := defaultSubscriber("Dan Theman")
-	printInfo(subscriber6)
+	printInfo(&subscriber6)
 	applyDiscount(&subscriber6)
-	printInfo(subscriber6)
+	printInfo(&subscriber6)
 }
