@@ -17,6 +17,12 @@ func (m MyType) MethodWithParameters(number int, flag bool) {
 	fmt.Println(flag)
 }
 
+func (m MyType) ExportedMethod() {
+}
+
+func (m MyType) unexportedMethod() {
+}
+
 func (m MyType) WithReturn() int {
 	return len(m)
 }
