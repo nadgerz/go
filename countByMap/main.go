@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/nadgerz/go/datafile"
 	"log"
+	"sort"
 )
 
 func main() {
@@ -24,4 +25,19 @@ func main() {
 	for name, count := range counts {
 		fmt.Printf("%s: %d\n", name, count)
 	}
+
+	var names []string
+	for name := range counts {
+		names = append(names, name)
+	}
+
+	fmt.Printf("%#v\n", names)
+	sort.Strings(names)
+	fmt.Printf("%#v\n", names)
+
+	for _, name := range names {
+		fmt.Printf("%s: %d\n", name, counts[name])
+	}
+
+	fmt.Printf("%#v\n", counts)
 }
