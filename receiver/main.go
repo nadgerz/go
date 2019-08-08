@@ -41,4 +41,7 @@ func main() {
 
 	anotherTwo := MyType("MyType value")
 	fmt.Println(anotherTwo.WithReturn())
+
+	anotherThree := MyType("MyType value is all the way to 3!")
+	fmt.Println(anotherThree.WithReturn())
 }
