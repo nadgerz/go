@@ -45,4 +45,7 @@ func main() {
 	fmt.Println(stuff["Li"])
 	fmt.Printf("%#v\n", stuff)
 
+	emptyMap := map[string]float64{}
+	fmt.Printf("%#v\n", emptyMap)
+
 }
