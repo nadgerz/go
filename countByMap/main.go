@@ -20,4 +20,8 @@ func main() {
 	}
 
 	fmt.Println(counts)
+
+	for name, count := range counts {
+		fmt.Printf("%s: %d\n", name, count)
+	}
 }
