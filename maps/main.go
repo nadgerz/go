@@ -34,4 +34,15 @@ func main() {
 	fmt.Println(isPrime[7])
 	fmt.Printf("%#v\n", isPrime)
 
+	ranks := map[string]int{"bronze": 3}
+	fmt.Println(map1["bronze"])
+	fmt.Printf("%#v\n", ranks)
+
+	stuff := map[string]string{
+		"H":  "Hydrogen",
+		"Li": "Lithium",
+	}
+	fmt.Println(stuff["Li"])
+	fmt.Printf("%#v\n", stuff)
+
 }
