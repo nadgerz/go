@@ -66,4 +66,12 @@ func main() {
 	fmt.Println(value, ok)
 	fmt.Printf("%#v\n", counters2)
 
+	var rank int
+	rank, ok = ranks["bronze"]
+	fmt.Printf("rank: %d, ok: %v\n", rank, ok)
+	delete(ranks, "bronze")
+	rank, ok = ranks["bronze"]
+	fmt.Printf("rank: %d, ok: %v\n", rank, ok)
+	fmt.Printf("%#v\n", ranks)
+
 }
