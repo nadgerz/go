@@ -28,14 +28,14 @@ func printInfo(s *subscriber) {
 	fmt.Println("Active?:", s.active)
 }
 
-func defaultSubscriber(name string) subscriber {
+func defaultSubscriber(name string) *subscriber {
 	var s subscriber
 
 	s.name = name
 	s.rate = 5.99
 	s.active = true
 
-	return s
+	return &s
 }
 
 func applyDiscount(s *subscriber) {
@@ -89,19 +89,19 @@ func main() {
 	fmt.Println("------------")
 	subscriber4 := defaultSubscriber("Mackenzie Rudis")
 	subscriber4.rate = 2.99
-	printInfo(&subscriber4)
+	printInfo(subscriber4)
 
 	fmt.Println()
 	fmt.Println("Subscriber 5")
 	fmt.Println("------------")
 	subscriber5 := defaultSubscriber("Chris Bojemski")
-	printInfo(&subscriber5)
+	printInfo(subscriber5)
 
 	fmt.Println()
 	fmt.Println("Subscriber 6")
 	fmt.Println("------------")
 	subscriber6 := defaultSubscriber("Dan Theman")
-	printInfo(&subscriber6)
-	applyDiscount(&subscriber6)
-	printInfo(&subscriber6)
+	printInfo(subscriber6)
+	applyDiscount(subscriber6)
+	printInfo(subscriber6)
 }
