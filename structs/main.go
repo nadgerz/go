@@ -115,4 +115,12 @@ func main() {
 		Active: false,
 	}
 	printInfo(&subscriber7)
+
+	fmt.Println()
+	fmt.Println("Subscriber 8")
+	fmt.Println("------------")
+	subscriber8 := magazine.Subscriber{
+		Name: "Billy Bunter",
+	}
+	printInfo(&subscriber8)
 }
