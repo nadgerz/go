@@ -47,6 +47,16 @@ func TestSumAllTails(t *testing.T) {
 			t.Errorf("got '%v' want '%v'", got, want)
 		}
 	})
+
+	t.Run("safely sum when there are empty arrays", func(t *testing.T) {
+
+		got := SumAllTails([]int{}, []int{5, 9})
+		want := []int{0, 9}
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got '%v' want '%v'", got, want)
+		}
+	})
 }
 
 //
