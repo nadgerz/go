@@ -10,22 +10,28 @@ func Sum(numbers []int) int {
 	return sum
 }
 
-func SumAll(numbersToSum ...[]int) (sums []int) {
+func SumAllTry1(numbersToSum ...[]int) (sums []int) {
 
 	for _, slice := range numbersToSum {
-		// fmt.Println(slice)
 
 		total := 0
 
 		for _, number := range slice {
-			// fmt.Println(number)
 			total += number
 		}
 
 		sums = append(sums, total)
 	}
 
-	// fmt.Println(sums)
+	return
+}
+
+func SumAll(numbersToSum ...[]int) (sums []int) {
+
+	for _, slice := range numbersToSum {
+
+		sums = append(sums, Sum(slice))
+	}
 
 	return
 }
