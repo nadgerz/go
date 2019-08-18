@@ -26,7 +26,7 @@ func SumAllTry1(numbersToSum ...[]int) (sums []int) {
 	return
 }
 
-func SumAll(numbersToSum ...[]int) (sums []int) {
+func SumAllTry2(numbersToSum ...[]int) (sums []int) {
 
 	for _, slice := range numbersToSum {
 
@@ -34,4 +34,17 @@ func SumAll(numbersToSum ...[]int) (sums []int) {
 	}
 
 	return
+}
+
+func SumAll(numbersToSum ...[]int) []int {
+
+	numberOfSlices := len(numbersToSum)
+	sums := make([]int, numberOfSlices)
+
+	for i, slice := range numbersToSum {
+
+		sums[i] = Sum(slice)
+	}
+
+	return sums
 }
