@@ -38,12 +38,13 @@ func TestSumAll(t *testing.T) {
 
 func ExampleSumAll1() {
 	total := SumAll([]int{1, 2}, []int{0, 9})
-	fmt.Println(total)
+	// fmt.Println(total)
+	fmt.Printf("%#v\n", total)
 	// Output: []int{3, 9}
 }
 
 func ExampleSumAll2() {
 	total := SumAll([]int{1, 1, 1})
-	fmt.Println(total)
+	fmt.Printf("%#v\n", total)
 	// Output: []int{3}
 }
