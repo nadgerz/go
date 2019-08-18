@@ -22,7 +22,6 @@ func TestSum(t *testing.T) {
 }
 
 // take a varying number of slices, returning a new slice containing the totals for each slice passed in.
-//
 func TestSumAll(t *testing.T) {
 
 	t.Run("new slice with totals for two slices passed in", func(t *testing.T) {
@@ -36,9 +35,25 @@ func TestSumAll(t *testing.T) {
 	})
 }
 
+// total all but the head value...
+func TestSumAllTails(t *testing.T) {
+
+	t.Run("total all but the head value for a variable number of slices passed in", func(t *testing.T) {
+
+		got := SumAllTails([]int{1, 2}, []int{0, 9})
+		want := []int{2, 9}
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got '%v' want '%v'", got, want)
+		}
+	})
+}
+
+//
+//    EXAMPLES
+//
 func ExampleSumAll1() {
 	total := SumAll([]int{1, 2}, []int{0, 9})
-	// fmt.Println(total)
 	fmt.Printf("%#v\n", total)
 	// Output: []int{3, 9}
 }
@@ -47,4 +62,16 @@ func ExampleSumAll2() {
 	total := SumAll([]int{1, 1, 1})
 	fmt.Printf("%#v\n", total)
 	// Output: []int{3}
+}
+
+func ExampleSumAllTails1() {
+	total := SumAllTails([]int{1, 2}, []int{0, 9})
+	fmt.Printf("%#v\n", total)
+	// Output: []int{2, 9}
+}
+
+func ExampleSumAllTails2() {
+	total := SumAllTails([]int{1, 1, 1})
+	fmt.Printf("%#v\n", total)
+	// Output: []int{2}
 }
