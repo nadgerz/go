@@ -6,6 +6,9 @@ func TestPerimeter(t *testing.T) {
 	rectangle := Rectangle{10.0, 10.0}
 
 	got, err := Perimeter(rectangle)
+	if err != nil {
+	}
+
 	want := 40.0
 
 	if got != want {
@@ -19,6 +22,9 @@ func TestArea(t *testing.T) {
 		rectangle := Rectangle{12, 6}
 
 		got, err := Area(rectangle)
+		if err != nil {
+		}
+
 		want := 72.0
 
 		if got != want {
@@ -30,7 +36,10 @@ func TestArea(t *testing.T) {
 		rectangle := Rectangle{-1, 6}
 
 		got, err := Area(rectangle)
-		// Would rather pass back an error 'object'
+		if err != nil {
+		}
+
+		// TBD: Would rather pass back an error 'object'
 		want := -1.0
 
 		if got != want {
@@ -41,7 +50,10 @@ func TestArea(t *testing.T) {
 	t.Run("circles", func(t *testing.T) {
 		circle := Circle{10}
 
-		got, err := Area(circle)
+		got, err := circle.Area(circle.Radius)
+		if err != nil {
+		}
+
 		want := 314.1592653589793
 
 		if got != want {
