@@ -2,6 +2,11 @@ package smi
 
 import "testing"
 
+type Rectangle struct {
+	Width  float64
+	Height float64
+}
+
 func TestPerimeter(t *testing.T) {
 	got := Perimeter(10.0, 10.0)
 	want := 40.0
