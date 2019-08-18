@@ -35,17 +35,23 @@ func TestSumAll(t *testing.T) {
 	})
 }
 
-// total all but the head value...
+// total all but the head value across multiple slices...
 func TestSumAllTails(t *testing.T) {
+
+	checkSums := func(t *testing.T, got, want []int) {
+		t.Helper()
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got '%v' want '%v'", got, want)
+		}
+	}
 
 	t.Run("total all but the head value for a variable number of slices passed in", func(t *testing.T) {
 
 		got := SumAllTails([]int{1, 2}, []int{0, 9})
 		want := []int{2, 9}
 
-		if !reflect.DeepEqual(got, want) {
-			t.Errorf("got '%v' want '%v'", got, want)
-		}
+		checkSums(t, got, want)
 	})
 
 	t.Run("safely sum when there are empty arrays", func(t *testing.T) {
@@ -53,9 +59,8 @@ func TestSumAllTails(t *testing.T) {
 		got := SumAllTails([]int{}, []int{5, 9})
 		want := []int{0, 9}
 
-		if !reflect.DeepEqual(got, want) {
-			t.Errorf("got '%v' want '%v'", got, want)
-		}
+		// checkSums(t, got, want)
+		checkSums(t, got, "dave")
 	})
 }
 
