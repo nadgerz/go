@@ -1,7 +1,6 @@
 package smi
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -28,9 +27,6 @@ func TestArea(t *testing.T) {
 		if err != nil {
 		}
 
-		fmt.Printf("%#v\n", err)
-		fmt.Printf("%T\n", err)
-
 		want := 72.0
 
 		if got != want {
@@ -42,18 +38,23 @@ func TestArea(t *testing.T) {
 		rectangle := Rectangle{-1, 6}
 
 		got, err := Area(rectangle)
-		if err != nil {
+		if err == nil {
+			t.Errorf("Expected Area() to throw an error for a regative width/height [%v]", got)
 		}
 
-		fmt.Printf("%#v\n", err)
-		fmt.Printf("%T\n", err)
+		// return // all good - it returned an error as it should.
 
-		// TBD: Would rather pass back an error 'object'
-		want := -1.0
+		/*
+			fmt.Printf("%#v\n", err)
+			fmt.Printf("%T\n", err)
 
-		if got != want {
-			t.Errorf("got %.2f want %.2f", got, want)
-		}
+			// TBD: Would rather pass back an error 'object'
+			want := -1.0
+
+			if got != want {
+				t.Errorf("got %.2f want %.2f", got, want)
+			}
+		*/
 	})
 
 	t.Run("circles", func(t *testing.T) {
