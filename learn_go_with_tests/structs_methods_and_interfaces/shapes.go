@@ -1,9 +1,9 @@
 package smi
 
-func Perimeter(width float64, height float64) float64 {
-	return 2 * (width + height)
+func Perimeter(rect Rectangle) float64 {
+	return 2 * (rect.Width + rect.Height)
 }
 
-func Area(width float64, height float64) float64 {
-	return width * height
+func Area(rect Rectangle) float64 {
+	return rect.Width * rect.Height
 }
