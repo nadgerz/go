@@ -1,6 +1,9 @@
 package smi
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestPerimeter(t *testing.T) {
 	rectangle := Rectangle{10.0, 10.0}
@@ -25,6 +28,9 @@ func TestArea(t *testing.T) {
 		if err != nil {
 		}
 
+		fmt.Printf("%#v\n", err)
+		fmt.Printf("%T\n", err)
+
 		want := 72.0
 
 		if got != want {
@@ -38,6 +44,9 @@ func TestArea(t *testing.T) {
 		got, err := Area(rectangle)
 		if err != nil {
 		}
+
+		fmt.Printf("%#v\n", err)
+		fmt.Printf("%T\n", err)
 
 		// TBD: Would rather pass back an error 'object'
 		want := -1.0
