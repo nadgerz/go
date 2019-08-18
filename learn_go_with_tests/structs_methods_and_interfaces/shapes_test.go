@@ -5,7 +5,7 @@ import "testing"
 func TestPerimeter(t *testing.T) {
 	rectangle := Rectangle{10.0, 10.0}
 
-	got := Perimeter(rectangle)
+	got, err := Perimeter(rectangle)
 	want := 40.0
 
 	if got != want {
@@ -18,7 +18,7 @@ func TestArea(t *testing.T) {
 	t.Run("rectangles", func(t *testing.T) {
 		rectangle := Rectangle{12, 6}
 
-		got := Area(rectangle)
+		got, err := Area(rectangle)
 		want := 72.0
 
 		if got != want {
@@ -29,7 +29,7 @@ func TestArea(t *testing.T) {
 	t.Run("bad rectangle - negative widths", func(t *testing.T) {
 		rectangle := Rectangle{-1, 6}
 
-		got := Area(rectangle)
+		got, err := Area(rectangle)
 		// Would rather pass back an error 'object'
 		want := -1.0
 
@@ -41,7 +41,7 @@ func TestArea(t *testing.T) {
 	t.Run("circles", func(t *testing.T) {
 		circle := Circle{10}
 
-		got := Area(circle)
+		got, err := Area(circle)
 		want := 314.1592653589793
 
 		if got != want {
