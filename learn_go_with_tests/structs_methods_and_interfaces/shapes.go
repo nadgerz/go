@@ -14,9 +14,13 @@ type Circle struct {
 	Radius float64
 }
 
+type Triangle struct {
+	Base   float64
+	Height float64
+}
+
 type Shape interface {
 	Area() (float64, error)
-	Perimeter() (float64, error)
 }
 
 func Perimeter(rect Rectangle) (float64, error) {
@@ -37,4 +41,13 @@ func (c Circle) Area() (float64, error) {
 	}
 
 	return math.Pi * c.Radius * c.Radius, nil
+}
+
+func (t Triangle) Area() (float64, error) {
+
+	if t.Base <= 0 || t.Height <= 0 {
+		return -1, fmt.Errorf("Neither Triangle Base nor Height can be <= 0 [%v, %v]", t.Base, t.Height)
+	}
+
+	return (t.Base * t.Height) / 2, nil
 }
