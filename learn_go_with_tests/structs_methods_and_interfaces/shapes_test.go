@@ -23,7 +23,7 @@ func TestArea(t *testing.T) {
 	t.Run("rectangles", func(t *testing.T) {
 		rectangle := Rectangle{12, 6}
 
-		got, err := Area(rectangle)
+		got, err := rectangle.Area()
 		if err != nil {
 		}
 
@@ -37,30 +37,16 @@ func TestArea(t *testing.T) {
 	t.Run("bad rectangle - negative widths", func(t *testing.T) {
 		rectangle := Rectangle{-1, 6}
 
-		got, err := Area(rectangle)
+		got, err := rectangle.Area()
 		if err == nil {
 			t.Errorf("Expected Area() to throw an error for a regative width/height [%v]", got)
 		}
-
-		// return // all good - it returned an error as it should.
-
-		/*
-			fmt.Printf("%#v\n", err)
-			fmt.Printf("%T\n", err)
-
-			// TBD: Would rather pass back an error 'object'
-			want := -1.0
-
-			if got != want {
-				t.Errorf("got %.2f want %.2f", got, want)
-			}
-		*/
 	})
 
 	t.Run("circles", func(t *testing.T) {
 		circle := Circle{10}
 
-		got, err := circle.Area(circle.Radius)
+		got, err := circle.Area()
 		if err != nil {
 		}
 
