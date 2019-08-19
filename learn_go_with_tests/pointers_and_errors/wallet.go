@@ -5,8 +5,9 @@ type Wallet struct {
 }
 
 func (w Wallet) Deposit(amount float64) {
+	w.balance += amount
 }
 
 func (w Wallet) Balance() float64 {
-	return 0
+	return w.balance
 }
