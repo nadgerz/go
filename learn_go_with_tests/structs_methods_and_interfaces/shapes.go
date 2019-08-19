@@ -14,22 +14,26 @@ type Circle struct {
 	Radius float64
 }
 
+type Shape interface {
+	Area() (float64, error)
+}
+
 func Perimeter(rect Rectangle) (float64, error) {
 	return 2 * (rect.Width + rect.Height), nil
 }
 
-func Area(rect Rectangle) (float64, error) {
-	if rect.Width <= 0 || rect.Height <= 0 {
-		return -1, fmt.Errorf("Neither Rectangle Width nor Height can be <= 0 [%v, %v]", rect.Width, rect.Height)
+func (r Rectangle) Area() (float64, error) {
+	if r.Width <= 0 || r.Height <= 0 {
+		return -1, fmt.Errorf("Neither Rectangle Width nor Height can be <= 0 [%v, %v]", r.Width, r.Height)
 	}
 
-	return rect.Width * rect.Height, nil
+	return r.Width * r.Height, nil
 }
 
-func (c *Circle) Area(radius float64) (float64, error) {
-	if radius <= 0 {
-		return -1, fmt.Errorf("Circle radius can not be <= 0 [%v]", radius)
+func (c Circle) Area() (float64, error) {
+	if c.Radius <= 0 {
+		return -1, fmt.Errorf("Circle radius can not be <= 0 [%v]", c.Radius)
 	}
 
-	return math.Pi * radius * radius, nil
+	return math.Pi * c.Radius * c.Radius, nil
 }
