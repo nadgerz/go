@@ -1,7 +1,6 @@
 package pae
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -14,12 +13,12 @@ func TestWallet(t *testing.T) {
 
 		got := wallet.Balance()
 
-		fmt.Printf("address of balance in test    is %v\n", &wallet.balance)
+		// fmt.Printf("address of balance in test    is %v\n", &wallet.balance)
 
 		want := Bitcoin(10.0)
 
 		if got != want {
-			t.Errorf("%#v got %.2f want %.2f", want, got, want)
+			t.Errorf("%#v got %s want %s", want, got, want)
 		}
 
 	})
