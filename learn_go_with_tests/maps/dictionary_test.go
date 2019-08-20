@@ -12,6 +12,7 @@ func TestSearch(t *testing.T) {
 }
 
 func assertStrings(t *testing.T, got, want string) {
+	t.Helper()
 
 	if got != want {
 		t.Errorf("got %q want %q given, %q", got, want, "test")
