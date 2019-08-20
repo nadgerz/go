@@ -14,7 +14,7 @@ func TestWallet(t *testing.T) {
 
 		got := wallet.Balance()
 
-		fmt.Printf("address of balance in test is    %v\n", &wallet.balance)
+		fmt.Printf("address of balance in test    is %v\n", &wallet.balance)
 
 		want := 10.0
 
