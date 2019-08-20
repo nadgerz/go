@@ -15,10 +15,16 @@ func TestSearch(t *testing.T) {
 
 	t.Run("word does not exist", func(t *testing.T) {
 
-		got := dictionary.Search("glibble")
-		want := "this is just a test"
+		testWord := "glibble"
 
-		assertStrings(t, got, want)
+		_, err := dictionary.Search(testWord)
+		want := "could not find the word 'testWord' you were looking for"
+
+		if err == nil {
+			t.fatal("Expected to get an error")
+		}
+
+		assertStrings(t, err.Error(), want)
 	})
 
 }
