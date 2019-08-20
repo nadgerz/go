@@ -1,7 +1,6 @@
 package maps
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -23,7 +22,7 @@ func TestSearch(t *testing.T) {
 		testWord := "glibble"
 
 		_, err := dictionary.Search(testWord)
-		want := fmt.Sprintf("could not find the word '%s' you were looking for", testWord)
+		want := "could not find the word you were looking for"
 
 		if err == nil {
 			t.Fatal("Expected to get an error")
