@@ -2,15 +2,25 @@ package pae
 
 import "fmt"
 
-type Wallet struct {
-	balance float64
+type Bitcoin float64
+
+type Stringer interface {
+	String() string
 }
 
-func (w *Wallet) Deposit(amount float64) {
+type Wallet struct {
+	balance Bitcoin
+}
+
+func (w *Wallet) Deposit(amount Bitcoin) {
 	fmt.Printf("address of balance in Deposit is %v\n", &w.balance)
 	w.balance += amount
 }
 
-func (w *Wallet) Balance() float64 {
+func (w *Wallet) Balance() Bitcoin {
 	return w.balance
+}
+
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%0.2f BTC", b)
 }
