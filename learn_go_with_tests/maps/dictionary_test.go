@@ -13,6 +13,14 @@ func TestSearch(t *testing.T) {
 		assertStrings(t, got, want)
 	})
 
+	t.Run("word does not exist", func(t *testing.T) {
+
+		got := dictionary.Search("glibble")
+		want := "this is just a test"
+
+		assertStrings(t, got, want)
+	})
+
 }
 
 func assertStrings(t *testing.T, got, want string) {
