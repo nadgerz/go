@@ -42,6 +42,19 @@ func TestAdd(t *testing.T) {
 		assertDefinition(t, dictionary, word, definition)
 	})
 
+	t.Run("existing word", func(t *testing.T) {
+
+		word := "test"
+		definition := "this is just a test"
+
+		dictionary := Dictionary{word: definition}
+
+		err := dictionary.Add(word, "try this")
+
+		assertError(t, err, ErrWordExists, word)
+		assertDefinition(t, dictionary, word, definition)
+	})
+
 }
 
 func assertDefinition(t *testing.T, dictionary Dictionary, word, definition string) {
