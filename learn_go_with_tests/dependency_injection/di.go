@@ -5,6 +5,6 @@ import (
 	"fmt"
 )
 
-func Greet(write *bytes.Buffer, name string) {
-	fmt.Printf("Hello %s", name)
+func Greet(writer *bytes.Buffer, name string) {
+	fmt.Fprintf(writer, "Hello, %s", name)
 }
