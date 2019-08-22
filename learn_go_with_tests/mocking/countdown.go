@@ -1,10 +1,10 @@
 package mocking
 
 import (
-	"bytes"
 	"fmt"
+	"io"
 )
 
-func Countdown(out *bytes.Buffer) {
+func Countdown(out io.Writer) {
 	fmt.Fprintf(out, "3")
 }
