@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+var tenSecondTimeout = 10 * time.Second
+
 /*
 If you recall from the concurrency chapter, you can wait for
 values to be sent to a channel with myVar := <-ch.
@@ -21,7 +23,11 @@ We use ping in our select to set up two channels for each of our URLs.
 Whichever one writes to its channel first will have its code executed in the select,
 which results in its URL being returned (and being the winner).
 */
-func Racer(a, b string, timeout time.Duration) (winner string, error error) {
+func Racer(a, b string) (winner string, error error) {
+	return ConfigurableRacer(a, b, tenSecondTimeout)
+}
+
+func ConfigurableRacer(a, b string, timeout time.Duration) (winner string, error error) {
 	select {
 	case <-ping(a):
 		return a, nil
