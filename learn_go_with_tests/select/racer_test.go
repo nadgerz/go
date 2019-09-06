@@ -9,8 +9,8 @@ import (
 
 func TestRacer(t *testing.T) {
 
-	slowServer := makeDelayedServer(20)
-	fastServer := makeDelayedServer(0)
+	slowServer := makeDelayedServer(20 * time.Millisecond)
+	fastServer := makeDelayedServer(0 * time.Millisecond)
 
 	defer slowServer.Close()
 	defer fastServer.Close()
@@ -26,9 +26,9 @@ func TestRacer(t *testing.T) {
 	}
 }
 
-func makeDelayedServer(millis time.Duration) *httptest.Server {
+func makeDelayedServer(delay time.Duration) *httptest.Server {
 	return httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		time.Sleep(millis * time.Millisecond)
+		time.Sleep(delay)
 		w.WriteHeader(http.StatusOK)
 	}))
 }
