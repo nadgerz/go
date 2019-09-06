@@ -23,7 +23,7 @@ func TestRacer(t *testing.T) {
 		}
 	})
 
-	t.Run("compares two servers and returns ", func(t *testing.T) {
+	t.Run("compares two servers and returns the faster one", func(t *testing.T) {
 
 		slowServer := makeDelayedServer(20 * time.Millisecond)
 		fastServer := makeDelayedServer(0 * time.Millisecond)
@@ -35,7 +35,7 @@ func TestRacer(t *testing.T) {
 		fastURL := fastServer.URL
 
 		want := fastURL
-		got := Racer(slowURL, fastURL)
+		got, _ := Racer(slowURL, fastURL)
 
 		if got != want {
 			t.Errorf("got %q, want %q", got, want)

@@ -19,12 +19,12 @@ We use ping in our select to set up two channels for each of our URLs.
 Whichever one writes to its channel first will have its code executed in the select,
 which results in its URL being returned (and being the winner).
 */
-func Racer(a, b string) (winner string) {
+func Racer(a, b string) (winner string, error error) {
 	select {
 	case <-ping(a):
-		return a
+		return a, nil
 	case <-ping(b):
-		return b
+		return b, nil
 	}
 }
 
